@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { GetDataService } from '../../services/get-data.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthenticationService } from 'src/app/services/authenticate.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-buy',
@@ -14,12 +15,20 @@ export class BuyComponent implements OnInit {
   companyId = '';
   quantity = '';
   companyDetails: Object;
+  data: any;
+  params: any;
   constructor(private router: Router, 
               private getDataservice: GetDataService, 
               private _Activatedroute:ActivatedRoute,
               private toastr: ToastrService,
+              private location: Location,
               private watchService: AuthenticationService) {   }
 
+              agInit(params)
+              { 
+                this.params=params;
+                this.data=params.value;
+              }
   ngOnInit() {
     this._Activatedroute.paramMap.subscribe(params => { 
       this.companyId = params.get('id'); 
@@ -57,12 +66,22 @@ export class BuyComponent implements OnInit {
         }
       )
   }
+  gotoBuyPage()
+  {
+    console.log(localStorage.getItem("username"))
+    console.log(this.params)
+    this.buyItem();
+
+  }
   checkQuantity(qty)
   {
     if(isNaN(Number(qty.value)) || Number(qty.value) === 0)
       return false;
     else
       return true;
+  }
+  goBack(): void {
+    this.location.back();
   }
 }
 

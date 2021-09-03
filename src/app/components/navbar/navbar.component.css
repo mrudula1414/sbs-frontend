@@ -13,7 +13,13 @@
 .navbarList{
     margin-right:5%;
     width:100%;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: 500;
+}
+.navbarLista{
+    margin-right:5%;
+    width:100%;
+    font-size: 12px;
     font-weight: 500;
 }
 .username{

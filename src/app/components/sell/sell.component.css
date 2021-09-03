@@ -56,3 +56,16 @@
     font-weight: 600;
     font-size: 18px;
 }
+.back-button
+{
+    width:120px;
+    font-weight: 600;
+    font-size: 18px;
+    margin: 10px;
+    
+}
+.back-row
+{
+    padding: 15px;
+    margin-top: 5px;
+}

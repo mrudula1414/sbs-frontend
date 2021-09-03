@@ -23,10 +23,30 @@ export class GetDataService {
       this.url = this.baseUrl + "get-all";
       return this.http.get(this.url);       
   }
+  getAllWatchlists(email)
+  {
+    this.url = this.baseUrl + "watchlists?email"+email;
+      return this.http.get<MyShareResponse>(this.url);  
+  }
 
   getWatchList(email)
   {
       this.url = this.baseUrl + "watch-list?email=" + email;
+      return this.http.get<MyShareResponse>(this.url);       
+  }
+  getWatchList1(email)
+  {
+      this.url = this.baseUrl + "watch-list1?email=" + email;
+      return this.http.get<MyShareResponse>(this.url);       
+  }
+  getWatchList2(email)
+  {
+      this.url = this.baseUrl + "watch-list2?email=" + email;
+      return this.http.get<MyShareResponse>(this.url);       
+  }
+  getWatchList3(email)
+  {
+      this.url = this.baseUrl + "watch-list3?email=" + email;
       return this.http.get<MyShareResponse>(this.url);       
   }
 
@@ -50,7 +70,17 @@ export class GetDataService {
   
   addWatchList(email,id)
   {
-    this.url = this.baseUrl + "add-watchlist/?email=" + email + "&id=" + id;
+    this.url = this.baseUrl + "add-watchlist1/?email=" + email + "&id=" + id;
+    return this.http.get<responseStatus>(this.url);     
+  }
+  addWatchList2(email,id)
+  {
+    this.url = this.baseUrl + "add-watchlist2/?email=" + email + "&id=" + id;
+    return this.http.get<responseStatus>(this.url);     
+  }
+  addWatchList3(email,id)
+  {
+    this.url = this.baseUrl + "add-watchlist3/?email=" + email + "&id=" + id;
     return this.http.get<responseStatus>(this.url);     
   }
 
@@ -71,8 +101,9 @@ export class GetDataService {
     this.url = this.baseUrl + "sell";
     return this.http.post<responseStatus>(this.url, { "email":email, "companyId":id, "quantity":quantity} );               
   }
-  addfunds()
+  addfunds(email,amount)
   {
-    
+    this.url = this.baseUrl + "addfunds/?email="+email+"&amount="+amount;
+    return this.http.put<responseStatus>(this.url, { "email":email, "amount":amount} ); 
   }
 }

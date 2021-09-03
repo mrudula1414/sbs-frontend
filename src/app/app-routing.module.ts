@@ -11,21 +11,32 @@ import { MySharesComponent } from './components/my-shares/my-shares.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { UnderProgressComponent } from './components/under-progress/under-progress.component'
 import { AddfundComponent } from './addfund/addfund.component';
+import { WatchlisthomeComponent } from './watchlisthome/watchlisthome.component';
+import { MyactivityComponent } from './myactivity/myactivity.component';
+import { MultiplewatchlistsComponent } from './multiplewatchlists/multiplewatchlists.component';
 
 
 export const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: '', component: HomeComponent },
-  { path: 'watch', component: WatchListComponent },
+  { path: 'watch', component: WatchlisthomeComponent, },
   { path: 'buy/:id', component: BuyComponent },
   { path: 'sell/:id', component: SellComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent}, 
+  { path: 'myactivity', component: MyactivityComponent}, 
+
+  // children: [ 
+  //   {
+  // path: 'addfunds',component: AddfundComponent
+  //   }
+  //      ]},
   { path: 'view/:id', component: ViewComponent },
   { path: 'my-shares', component: MySharesComponent },
   { path: 'gainers', component: UnderProgressComponent },
   { path: 'losers', component: UnderProgressComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'addfunds', component: AddfundComponent},
+  { path: 'watchlists', component:MultiplewatchlistsComponent}
 
 ];
 

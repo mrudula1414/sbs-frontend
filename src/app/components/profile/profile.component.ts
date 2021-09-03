@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetDataService } from '../../services/get-data.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
   
 
-  constructor(private getDataservice: GetDataService,private router: Router) { }
+  constructor(private getDataservice: GetDataService,private router: Router, private Route:ActivatedRoute) { }
   userDetails;
   ngOnInit() {
     this.getDataservice.getUserDeatils(localStorage.getItem('username'))
@@ -22,7 +23,7 @@ export class ProfileComponent implements OnInit {
     )
   }
   goToAddFunds(){
-    this.router.navigate(['addfunds'])
+    this.router.navigate(['../addfunds'],{relativeTo:this.Route})
   }
 
 }

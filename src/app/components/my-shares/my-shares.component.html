@@ -1,3 +1,21 @@
+
+<div class="heading">
+    <h2>My Holdings</h2> <br>
+<div>
+
+<ag-grid-angular
+
+style="width: 1400px ;height:500px;"
+class="ag-theme-balham"
+[rowHeight]="rowHeight"
+[rowData]="rowData | async"
+[columnDefs]="columnDefs"
+[pagination]="true"
+[paginationPageSize]=10
+[animateRows]="true"
+rowSelection="multiple"
+></ag-grid-angular> 
+<!--
 <div class="heading">
 
     <div *ngIf="myShares" class="table-responsive-md " id=""> 
@@ -51,3 +69,4 @@
         There are No Shares in your Account
     </p>
 </div> 
+-->

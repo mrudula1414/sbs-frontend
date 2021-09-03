@@ -54,12 +54,60 @@ export class CustomcellComponent implements OnInit {
   
     )
   }
+  addToWatchlist2(companyName,companyId)
+  {
+  this.getDataservice.addWatchList2(companyName,companyId)
+  .subscribe(
+    data => {console.log(data)
+      if(data.status=='company exist')
+        this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
+      else
+        this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
+    },
+    error => {
+        console.log(error)
+    }
+  
+  
+    )
+  }
+  addToWatchlist3(companyName,companyId)
+  {
+  this.getDataservice.addWatchList3(companyName,companyId)
+  .subscribe(
+    data => {console.log(data)
+      if(data.status=='company exist')
+        this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
+      else
+        this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
+    },
+    error => {
+        console.log(error)
+    }
+  
+  
+    )
+  }
   
   addingToWatchlist()
  {
   console.log(localStorage.getItem("username"))
   console.log(this.data)
   this.addToWatchlist(localStorage.getItem("username"), this.data);
+ 
+ 
+ }
+ addingToWatchlist2()
+ {
+  
+  this.addToWatchlist2(localStorage.getItem("username"), this.data);
+ 
+ 
+ }
+ addingToWatchlist3()
+ {
+  
+  this.addToWatchlist3(localStorage.getItem("username"), this.data);
  
  
  }

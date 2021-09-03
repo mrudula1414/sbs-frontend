@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { AuthenticationService } from '../../services/authenticate.service'
 import { CellRendererComponent } from 'ag-grid-community/dist/lib/components/framework/componentTypes';
 import { CustomcellComponent } from 'src/app/customcell/customcell.component';
+import { BuybuttonComponent } from 'src/app/buybutton/buybutton.component';
+import { DetailsbuttonComponent } from 'src/app/detailsbutton/detailsbutton.component';
 
 
 @Component({
@@ -22,13 +24,23 @@ export class HomeComponent implements OnInit {
               private loginService:AuthenticationService,
               private http: HttpClient) { }
               columnDefs=[
-                { headerName: "Stock Symbol", field: "name", sortable:true,filter:true,resizable:true,width:200,cellClass: "grid-cell-centered"},
-                { headerName: "open rate", field: "open_rate", sortable:true,filter:true,resizable:true,width:200},
-                { headerName: "close rate", field: "close_rate",sortable:true,filter:true,resizable:true,width:200},
-                { headerName: "current rate", field: "current_rate", sortable:true,filter:true,resizable:true,width:200},
-                { headerName: "volume", field: "volume", sortable:true,filter:true,resizable:true,width:200},
+                { headerName: "Stock Symbol", field: "name", sortable:true,filter:true,resizable:true,width:180,cellClass: "grid-cell-centered"},
+                { headerName: "open rate", field: "open_rate", sortable:true,filter:true,resizable:true,width:180},
+                { headerName: "close rate", field: "close_rate",sortable:true,filter:true,resizable:true,width:180},
+                { headerName: "current rate", field: "current_rate", sortable:true,filter:true,resizable:true,width:180},
+                { headerName: "volume", field: "volume", sortable:true,filter:true,resizable:true,width:180},
                 //{ headerName: "currentrate", field: "current_rate", sortable:true,filter:true,resizable:true,width:200},
-                { headerName: "Action", field: "company_id", "cellRendererFramework":CustomcellComponent,width:200},
+                { headerName: "Action", field: "company_id", "cellRendererFramework":DetailsbuttonComponent,width:100},
+
+                { headerName: "Action", field: "company_id", "cellRendererFramework":CustomcellComponent,width:300},
+                { headerName: "Action", field: "company_id", "cellRendererFramework":BuybuttonComponent,width:100},
+      //{ headerName: "Action", field: "company_id", "cellRendererFramework":SellbuttonComponent,width:100},
+      //{ headerName: "Action", field: "company_id", "cellRendererFramework":CustomcellComponent,width:100},
+    
+ 
+      //{ headerName: "Action", field: "company_id", "cellRendererFramework":CustomcellComponent,width:200},
+     // { headerName: "Action", field: "company_id", "cellRendererFramework":DetailsbuttonComponent,width:100},
+     //{ headerName: "Action", field: "company_id",cellRendererFramework:(params)=
                //{ headerName: "Action", field: "company_id",cellRendererFramework:(params)=><div>
                 //<button>Watch</button></div>},
                 //{ headerName: "Action", field: "company_id",width:200,onClick={()=>actionButton(params)},cellRendererParams:(params)=>},
@@ -41,7 +53,7 @@ export class HomeComponent implements OnInit {
                
   ngOnInit() {
     this.rowData=this.http.get("http://localhost:8080/get-all")
-    this.rowHeight = 40;
+    this.rowHeight = 150;
     this.getDataservice.getAllCompany()
     
     .subscribe(

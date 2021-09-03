@@ -1,1 +1,35 @@
-<button (click)="addingToWatchlist()">Watch</button>
+ <!-- <button (click)="addingToWatchlist()">Watch</button>  -->
+
+ <div class="row">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>dropdown</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+        <button (click)="addingToWatchlist()" ngbDropdownItem style="width: auto">watchlist1</button>
+        <button (click)="addingToWatchlist2()" ngbDropdownItem style="width: auto">watchlist2</button>
+        <button (click)="addingToWatchlist3()" ngbDropdownItem style="width: auto">watchlist3</button>
+      </div>
+    </div>
+  </div>
+<!-- 
+<div class="row">
+    <div class="col">
+      <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-default btn-xs dropdown-toggle" id="dropdownBasic1" ngbDropdownToggle>dropdown</button>
+        <div aria-labelledby="dropdownBasic1">
+          <button (click)="addingToWatchlist()" ngbDropdownItem>watchlist1</button>
+          <button ngbDropdownItem>watchlist2</button>
+          <button ngbDropdownItem>watchlist3</button>
+        </div>
+      </div>
+    </div>   -->
+     <!-- <div class="btn-group">
+        <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true">
+          Extra small button <span class="caret"></span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button (click)="addingToWatchlist()ngbDropdownItem>Action - 1</button>
+            <button ngbDropdownItem>Another Action</button>
+            <button ngbDropdownItem>Something else is here</button>
+          </div>
+      </div>  -->

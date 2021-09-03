@@ -1,5 +1,5 @@
 <header>
-    <nav  class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+    <nav  class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a routerLink="/home" class="navbar-brand navbarHead">SBS</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,17 +11,25 @@
                   <a routerLink="/" class="nav-link">Stocks</a>
               </li>
               <li class="nav-item active navbarList">
-                  <a routerLink="/my-shares" class="nav-link">MyShares</a>
+                  <a routerLink="/my-shares" class="nav-link">Holdings</a>
               </li>
               <li class="nav-item active navbarList">
                   <a routerLink="/watch" class="nav-link">Watchlist</a>
               </li>
               <li class="nav-item active navbarList">
+                <a routerLink="/myactivity" class="nav-link">Activity</a>
+            </li>
+            <li class="nav-item active navbarList">
+                <a routerLink="/watchlists" class="nav-link">Watchlists</a>
+            </li>
+              <li class="nav-item active navbarList">
                   <a routerLink="/profile" class="nav-link">Profile</a>
               </li>
+
               <li class="nav-item active navbarList">
                   <a routerLink="/logout" class="nav-link">Logout</a>
               </li>
+            
           </ul> 
 
           <ul *ngIf="!loginService.isUserLoggedIn()" class="navbar-nav ml-auto">
@@ -36,3 +44,8 @@
         </div>               
       </nav>
 </header>
+<footer class="footer page-footer font-small blue fixed-bottom bg-dark" style="color:#caccce; text-align: center; height: 30px;">
+    <div class="container">
+        <span>All rights reserved 2021 @ TEAM GREEN</span>
+    </div>
+</footer>

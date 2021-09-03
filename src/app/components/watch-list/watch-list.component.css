@@ -1,3 +1,9 @@
+button{
+    background-color:aliceblue;
+    margin: 3px 1px;
+    border-radius: 8px; 
+
+}
 .heading{
     text-align: center;
     margin-top: 90px;

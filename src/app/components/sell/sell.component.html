@@ -123,7 +123,18 @@
                         <button type="submit" [disabled]="!checkQuantity(qty,companyDetails.quantity)" class="btn btn-primary sell-btn" (click)="sellItem()">Sell </button>
                     </div>
                 </div>               
-               
+                <div class="row back-row">
+                    <div class="col-sm-4">
+                        
+                    </div>
+                <div class="col-sm-4">
+                <button class="back-button btn btn-secondary" (click)="goBack()">Cancel</button>
+            </div>
+            <div class="col-sm-2">
+                        
+            </div>
+        </div>
+
             </form>
         </div>
   </div>

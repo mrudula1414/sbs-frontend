@@ -3,6 +3,7 @@ import { ChartDataSets, ChartOptions } from 'chart.js';
 import { Color, BaseChartDirective, Label } from 'ng2-charts';
 import { Router, ActivatedRoute } from '@angular/router';
 import { GetDataService } from '../../services/get-data.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view',
@@ -11,7 +12,7 @@ import { GetDataService } from '../../services/get-data.service';
 })
 export class ViewComponent implements OnInit {
   
-  constructor(private router: Router,private _Activatedroute:ActivatedRoute,private getDataservice: GetDataService) { }
+  constructor(private router: Router,private _Activatedroute:ActivatedRoute,private getDataservice: GetDataService,private location:Location) { }
   companyId;
   companyDetails;
   ngOnInit() {
@@ -33,6 +34,9 @@ export class ViewComponent implements OnInit {
   goToBuyPage()
   {
     this.router.navigate(['buy',this.companyId])
+  }
+  goBack(): void {
+    this.location.back();
   }
 
 

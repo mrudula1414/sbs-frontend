@@ -12,35 +12,64 @@ export class AddfundComponent implements OnInit {
   quantity = '';
   companyDetails;
   companyId;
+  userDetails;
+  email;
   constructor(private router: Router, private getDataservice: GetDataService, private _Activatedroute:ActivatedRoute) { }
 
   ngOnInit() {
-    // this._Activatedroute.paramMap.subscribe(params => { 
-    //   this.companyId = params.get('id'); 
-    //   });
-
-    //   this.getDataservice.getMyShares(localStorage.getItem('username'))
-    //   .subscribe(
-    //     data => {
-    //         for(let i=0;i<data.length;i++)
-    //         {
-    //           if(data[i].company_id==this.companyId)
-    //           {
-    //             this.companyDetails = data[i];
-    //           }
-    //         }
-            
-    //     },
-    //     error => {
-    //         console.log(error)
-    //     }
-    //   )
+    this.getDataservice.getUserDeatils(localStorage.getItem('username'))
+    .subscribe(
+      data => {
+          this.userDetails = data;
+          console.log(data);
+      },
+      error => { }
+    )
   }
-
-  updateUserFunds(){
-    //take input value from localstorage and toasterrr msg
-    // this.toastr.success('Successfully removed from your Watchlist', companyName,{positionClass:"toast-bottom-center"});
-    console.log("funds updated");
-    this.router.navigate(['profile'])
+  getuserdetails()
+  {
+    this.getDataservice.getUserDeatils(localStorage.getItem('username'))
+    .subscribe(
+      data => {
+          this.userDetails = data;
+          console.log(data);
+      },
+      error => { }
+    )
   }
+ 
+
+  updateUserFunds(item: any){
+    
+    
+    console.log(localStorage.getItem('username'))
+  this.getDataservice.addfunds(localStorage.getItem('username'),item.value)
+    .subscribe(
+      data=>{ 
+        if(data.status=="success")
+          this.router.navigate(['profile']) 
+          console.log(item.value)
+          console.log(localStorage.getItem('username')) 
+                   
+       
+      },
+      error => {
+          console.log(error)
+      }
+    )
+
+      }
+  
+      checkQuantity(qty)
+      {
+        if(isNaN(Number(qty.value)) || Number(qty.value) <= 0)
+          return false;
+        else
+          return true;
+      }
+
 }
+
+
+
+

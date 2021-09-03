@@ -24,6 +24,17 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { UnderProgressComponent } from './components/under-progress/under-progress.component';
 import { CustomcellComponent } from './customcell/customcell.component';
 import { AddfundComponent } from './addfund/addfund.component';
+import { BuybuttonComponent } from './buybutton/buybutton.component';
+import { SellbuttonComponent } from './sellbutton/sellbutton.component';
+import { DetailsbuttonComponent } from './detailsbutton/detailsbutton.component';
+import { WatchlisthomeComponent } from './watchlisthome/watchlisthome.component';
+import { MyactivityComponent } from './myactivity/myactivity.component';
+import { MultiplewatchlistsComponent } from './multiplewatchlists/multiplewatchlists.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Watchlist1Component } from './watchlist1/watchlist1.component';
+//import { SelectDropDownModule } from 'ngx-select-dropdown'
+//import { NgbdDropdownBasic } from './dropdown-basic';
+
 
 
 
@@ -44,7 +55,17 @@ import { AddfundComponent } from './addfund/addfund.component';
     UnderProgressComponent,
     CustomcellComponent,
     AddfundComponent,
+    BuybuttonComponent,
+    SellbuttonComponent,
+    DetailsbuttonComponent,
+    WatchlisthomeComponent,
+    MyactivityComponent,
+    MultiplewatchlistsComponent,
+    Watchlist1Component,
   
+   // NgbdDropdownBasic,
+  
+   
 
    
   ],
@@ -56,11 +77,14 @@ import { AddfundComponent } from './addfund/addfund.component';
     HttpClientModule, 
     ChartsModule,
     BrowserAnimationsModule,
+ 
     AgGridModule.withComponents([]),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [],
-  entryComponents:[CustomcellComponent],
+  entryComponents:[CustomcellComponent,BuybuttonComponent,SellbuttonComponent,DetailsbuttonComponent,WatchListComponent],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

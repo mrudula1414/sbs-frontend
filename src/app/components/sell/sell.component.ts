@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { GetDataService } from '../../services/get-data.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-sell',
   templateUrl: './sell.component.html',
@@ -12,7 +12,7 @@ export class SellComponent implements OnInit {
   quantity = '';
   companyDetails;
   companyId;
-  constructor(private router: Router, private getDataservice: GetDataService,private _Activatedroute:ActivatedRoute) {   }
+  constructor(private router: Router, private getDataservice: GetDataService,private _Activatedroute:ActivatedRoute,private location: Location) {   }
 
 
   ngOnInit() {
@@ -60,5 +60,8 @@ export class SellComponent implements OnInit {
       return false;
     else
       return true;
+  }
+  goBack(): void {
+    this.location.back();
   }
 }

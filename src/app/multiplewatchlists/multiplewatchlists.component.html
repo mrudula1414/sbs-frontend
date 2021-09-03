@@ -1,0 +1,36 @@
+
+<br>
+<br>
+<br>
+
+<h1 style="text-align: center;">Watchlists</h1>
+<div class="container">
+  <div class="row">
+<div style="background-color:#90a698;" class=" col col-3 ">
+    <p>multiplewatchlists works!</p>
+    <button (click)="viewWatchlist1()">watchlist1</button> <br>
+    
+    <button >watchlist2</button><br>
+    <button>watchlist3</button>
+    
+</div>
+<div style="background-color: #c2acac;"class="col col-7">
+    <p>multiplewatchlists works!</p>  
+    <div class="container">
+      <ag-grid-angular
+      
+      style="width: 500px ;height:500px;"
+      class="ag-theme-balham"
+      [rowHeight]="rowHeight"
+      [rowData]="rowData | async"
+      [columnDefs]="columnDefs"
+      [pagination]="true"
+      [paginationPageSize]=10
+      [animateRows]="true"
+      rowSelection="multiple"
+      ></ag-grid-angular> 
+      </div>
+    <!-- //<app-watchlisthome> </app-watchlisthome> -->
+</div>
+</div>
+</div>
