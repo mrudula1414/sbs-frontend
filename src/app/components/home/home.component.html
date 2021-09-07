@@ -1,22 +1,25 @@
 
 <div class="heading">
-    <h2>All Stocks</h2> <br>
-<div *ngIf="loginService.isUserLoggedIn()">
+    <div class="main">
+    <h2>All Stocks</h2> 
+</div><br>
+<div *ngIf="loginService.isUserLoggedIn()" >
 
     <ag-grid-angular
 
-    style="width: 1400px ;height:500px;"
+    style="width: 1400px ;height:1000px;"
     class="ag-theme-balham"
     [rowHeight]="rowHeight"
     [rowData]="rowData | async"
     [columnDefs]="columnDefs"
     [pagination]="true"
-    [paginationPageSize]=10
+[paginationPageSize]=10
     [animateRows]="true"
     rowSelection="multiple"
     ></ag-grid-angular> 
 </div>
-
+<!-- [pagination]="true"
+    [paginationPageSize]=5 -->
 <!--<div class="heading">
 
         <div  *ngIf="companyDetails" class="table-responsive-md" id="" > 
@@ -123,18 +126,4 @@
 <br>
 <br>
 <br>
-<!--<table class="table table-borderless table-hover">
-<ag-grid-angular
 
-style="width: 1400px ;height:500px;"
-class="ag-theme-balham"
-[rowHeight]="rowHeight"
-[rowData]="rowData | async"
-[columnDefs]="columnDefs"
-[pagination]="true"
-[paginationPageSize]=10
-[animateRows]="true"
-rowSelection="multiple"
-></ag-grid-angular>
-</table>
-</body>-->

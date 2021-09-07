@@ -16,6 +16,9 @@ import { GetDataService } from '../services/get-data.service';
   styleUrls: ['./multiplewatchlists.component.css']
 })
 export class MultiplewatchlistsComponent implements OnInit {
+  watchList;
+  watchlistname: String;
+  data: any;
   //watchList;
 
   // constructor(private router: Router,private toastr: ToastrService, private getDataservice: GetDataService,private watchService:AuthenticationService) { }
@@ -36,10 +39,10 @@ export class MultiplewatchlistsComponent implements OnInit {
   //     }
   //   )
   // }
-  
   constructor(private router: Router, 
     private getDataservice: GetDataService, 
-    private loginService:AuthenticationService,
+    private loginService:AuthenticationService
+,private toastr: ToastrService, 
     private http: HttpClient) { }
     columnDefs=[
       
@@ -81,19 +84,170 @@ this.rowHeight = 40;
 
 
 }
-// viewWatchlist1()
+watchList1;
+viewWatchlist1()
+{
+    
+    //this.router.navigate(['watchlists',localStorage.getItem('username')])
+   this.watchlistname="watchlist1";  
+
+  this.getDataservice.getWatchList(localStorage.getItem('username'),this.watchlistname)
+    .subscribe(
+      data => {
+        if(data.length==0)
+        {
+          console.log(data.length)
+          this.watchList1=null
+         
+          console.log(this.watchList1)
+        }
+       else
+        {
+
+          this.watchList1 = data;
+        
+          console.log(this.watchList1)
+        }
+      },
+      error => {
+        
+          console.log(error)
+      }
+    )
+  
+}
+viewWatchlist2()
+{
+    
+    //this.router.navigate(['watchlists',localStorage.getItem('username')])
+   this.watchlistname="watchlist2";  
+  this.getDataservice.getWatchList(localStorage.getItem('username'),this.watchlistname)
+    .subscribe(
+      data => {
+        if(data.length==0)
+        {
+          
+          console.log(data.length)
+          this.watchList1=null
+         
+          console.log(this.watchList1)
+        }
+        else
+        {
+          //this.clearData()
+          this.watchList1 = data;
+        
+          console.log(this.watchList1)
+        }
+      },
+      error => {
+        
+          console.log(error)
+      }
+    )
+  
+}
+viewWatchlist3()
+{
+    
+    //this.router.navigate(['watchlists',localStorage.getItem('username')])
+    this.watchlistname="watchlist3";
+  this.getDataservice.getWatchList(localStorage.getItem('username'),this.watchlistname)
+    .subscribe(
+      data => {
+        if(data.length==0)
+        {
+          console.log(data.length)
+          this.watchList1=null
+         
+          console.log(this.watchList1)
+        }
+     else
+        {
+
+          this.watchList1 = data;
+        
+          console.log(this.watchList1)
+        }
+      },
+      error => {
+        
+          console.log(error)
+      }
+    )
+  
+}
+clearData()
+{
+  document.querySelector('div.watchlist').innerHTML = "";
+
+}
+reloadCurrentRoute() {
+  let currentUrl = this.router.url;
+  this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([currentUrl]);
+      console.log(currentUrl);
+  });
+}
+// loadData()
+//   {
+
+//     this.getDataservice.getWatchList(localStorage.getItem('username'),this.watchlistname)
+//     .subscribe(
+//       data => {
+//         if(data.length)
+//         {
+//           this.watchList = data;
+//           console.log(this.watchList)
+//         }
+//       },
+//       error => {
+        
+//           console.log(error)
+//       }
+//     )
+//   }
+  
+removeFromWatchlist(companyid)
+{
+  this.getDataservice.removeWatchList(localStorage.getItem('username'),companyid)
+    .subscribe(
+      data => {
+          if(data.status=="success")
+          {
+           
+           
+            this.toastr.success('Successfully removed from your Watchlist', companyid,{positionClass:"toast-bottom-center"});
+          
+          }
+            
+      },
+      error => {
+          console.log(error)
+      }
+  
+
+    )
+
+}
+goToDetailedView(companyId)
+{    
+  this.router.navigate(['view',companyId])
+}
+
+// gotowatchlist1()
 // {
+ 
+//   this.reloadCurrentPage();
 //   alert("hi")
-//   this.getDataservice.getWatchList1(localStorage.getItem('username'))
-//   .subscribe(
-//     data => {
-//       if(data.length)
-//         this.watchList = data;
-//     },
-//     error => {
-//         console.log(error)
-//     }
-//   )
+//   this.viewWatchlist1();
+ 
 // }
+reloadCurrentPage() {
+  window.location.reload();
+ }
+
+
+
 
 }

@@ -33,10 +33,11 @@ export class WatchListComponent implements OnInit {
   ngOnInit() {
     this.loadData();
   }  
+  watchlistname:String;
   loadData()
   {
 
-    this.getDataservice.getWatchList(localStorage.getItem('username'))
+    this.getDataservice.getWatchList(localStorage.getItem('username'),this.watchlistname)
     .subscribe(
       data => {
         if(data.length)

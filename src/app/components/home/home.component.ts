@@ -55,20 +55,22 @@ export class HomeComponent implements OnInit {
     this.rowData=this.http.get("http://localhost:8080/get-all")
     this.rowHeight = 150;
     this.getDataservice.getAllCompany()
-    
     .subscribe(
       data => {
+        console.log("Stocks Data")
+        console.log(data)
           this.companyDetails = data;
+
       },
       error => {
           console.log(error)
       }
     )
   }
-
+  watchlistname;
   addToWatchlist(companyId, companyName)
   {
-    this.getDataservice.addWatchList(localStorage.getItem('username'),companyId)
+    this.getDataservice.addWatchList(localStorage.getItem('username'),companyId,this.watchlistname)
     .subscribe(
       data => {console.log(data)
         if(data.status=='company exist')

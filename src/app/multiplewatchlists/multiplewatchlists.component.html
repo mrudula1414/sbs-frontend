@@ -2,21 +2,78 @@
 <br>
 <br>
 <br>
-
-<h1 style="text-align: center;">Watchlists</h1>
-<div class="container">
+<div class="main">
+<h2 style="text-align: center;">Watchlists</h2>
+</div>
+<!-- div class="container"> -->
   <div class="row">
-<div style="background-color:#90a698;" class=" col col-3 ">
-    <p>multiplewatchlists works!</p>
-    <button (click)="viewWatchlist1()">watchlist1</button> <br>
-    
-    <button >watchlist2</button><br>
-    <button>watchlist3</button>
+<div class=" col col-2 watchlist-list" >
+    <!-- <button type="button" (click)="viewWatchlist1()" class="target btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+       watchlist1
+      </button> -->
+   <button (click)="viewWatchlist1()" class="target btn">watchlist1</button> <br>
+   <!-- <button (click)="gotowatchlist1()">watchlist1</button><br> -->
+    <button (click)="viewWatchlist2()" class="target btn ">watchlist2</button><br>
+    <button (click)="viewWatchlist3()" class="target btn ">watchlist3</button>
     
 </div>
-<div style="background-color: #c2acac;"class="col col-7">
-    <p>multiplewatchlists works!</p>  
-    <div class="container">
+
+<div class="col col-9">
+     
+    <div class="heading">
+        <div *ngIf="!watchList1">
+            <br>
+            <br>
+             <h5 style="text-align: center;">No stocks in your watchlist !</h5>
+         </div>
+      <div *ngIf="watchList1" class="table-responsive-md watchlist" id=""> 
+        <h2 style="text-align: center;">{{watchlistname}}</h2>
+          <table class="table table-borderles table-hover">
+                  <thead class="thead-light">
+                  <tr>
+                      
+                      <th>Company Name</th>
+                      <th>Open Rate</th>
+                      <th>Close Rate</th>
+                      <th>Today's Peak Price</th>
+                      <th>Today's Low Price</th>
+                      <th>Current Rate</th>
+                      <th>Year Low</th>
+                      <th>Year High</th>
+                      <th>Action</th>
+                      <th>Action</th>
+                      <th>Action</th>
+                  </tr>
+                  </thead>
+  
+                  <tbody>
+                      <tr *ngFor="let elements of watchList1">
+                          <td>{{elements.name}}</td>
+                          <td>{{elements.open_rate}}</td>
+                          <td>{{elements.close_rate}}</td>
+                          <td>{{elements.peak_rate}}</td>
+                          <td>{{elements.least_rate}}</td>
+                          <td>{{elements.current_rate}}</td>
+                          <td>{{elements.year_low}}</td>
+                          <td>{{elements.year_high}}</td>
+                          <td>
+                              <button (click)="goToDetailedView(elements.company_id)" type="button" class="btn btn-secondary" id="details">Details</button>
+                          </td>
+                          <td>                                 
+                              <button (click)="goToBuyPage(elements.company_id)" type="button" class="btn btn-info">Buy</button>
+                          </td>
+                          <td>
+                              <button (click)="removeFromWatchlist(elements.company_id)" type="button" class="btn btn-danger" id="remove"  >Remove</button>                        </td>
+                      </tr>   
+                      
+                  </tbody>
+          </table>        
+      </div>
+           
+    
+
+
+    <!-- <div class="container">
       <ag-grid-angular
       
       style="width: 500px ;height:500px;"
@@ -29,8 +86,8 @@
       [animateRows]="true"
       rowSelection="multiple"
       ></ag-grid-angular> 
-      </div>
+      </div> -->
     <!-- //<app-watchlisthome> </app-watchlisthome> -->
 </div>
 </div>
-</div>
+<!-- </div> -->

@@ -53,7 +53,9 @@ export class WatchlisthomeComponent implements OnInit {
      
 ngOnInit() {
   const mailid=localStorage.getItem("username");
-this.rowData=this.http.get("http://localhost:8080/watch-list?email="+mailid)
+this.rowData=this.http.get("http://localhost:8080/watch-lists?email="+mailid)
+console.log("hi")
+console.log(this.rowData)
 this.rowHeight = 40;
 
 

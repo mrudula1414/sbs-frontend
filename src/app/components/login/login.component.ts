@@ -47,6 +47,7 @@ export class LoginComponent{
         this.loginservice.authenticate(this.mailid, this.password) 
         .subscribe( 
             data  => { 
+               
                         if(data.status==='success')
                         {          
                             localStorage.setItem('username', this.mailid);

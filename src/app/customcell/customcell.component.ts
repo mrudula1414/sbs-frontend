@@ -26,7 +26,7 @@ export class CustomcellComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getDataservice.getWatchList(localStorage.getItem('username'))
+    this.getDataservice.getWatchList(localStorage.getItem('username'),this.watchlistname)
     .subscribe(
       data => {
         if(data.length)
@@ -37,15 +37,18 @@ export class CustomcellComponent implements OnInit {
       }
     )
   }
-  addToWatchlist(companyName,companyId)
+  addToWatchlist(Name,companyId,watchlistname)
   {
-  this.getDataservice.addWatchList(companyName,companyId)
+  this.getDataservice.addWatchList(Name,companyId,watchlistname)
   .subscribe(
     data => {console.log(data)
+      console.log("hi")
+      console.log(watchlistname)
+      console.log(name)
       if(data.status=='company exist')
-        this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
+        this.toastr.error('Already Exists in your watchlist', companyId,{positionClass:"toast-bottom-center"});
       else
-        this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
+        this.toastr.info('Successfully added to your Watch list', companyId,{positionClass:"toast-bottom-center"});
     },
     error => {
         console.log(error)
@@ -54,60 +57,61 @@ export class CustomcellComponent implements OnInit {
   
     )
   }
-  addToWatchlist2(companyName,companyId)
-  {
-  this.getDataservice.addWatchList2(companyName,companyId)
-  .subscribe(
-    data => {console.log(data)
-      if(data.status=='company exist')
-        this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
-      else
-        this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
-    },
-    error => {
-        console.log(error)
-    }
+  // addToWatchlist2(companyName,companyId)
+  // {
+  // this.getDataservice.addWatchList2(companyName,companyId)
+  // .subscribe(
+  //   data => {console.log(data)
+  //     if(data.status=='company exist')
+  //       this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
+  //     else
+  //       this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
+  //   },
+  //   error => {
+  //       console.log(error)
+  //   }
   
   
-    )
-  }
-  addToWatchlist3(companyName,companyId)
-  {
-  this.getDataservice.addWatchList3(companyName,companyId)
-  .subscribe(
-    data => {console.log(data)
-      if(data.status=='company exist')
-        this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
-      else
-        this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
-    },
-    error => {
-        console.log(error)
-    }
+  //   )
+  // }
+  // addToWatchlist3(companyName,companyId)
+  // {
+  // this.getDataservice.addWatchList3(companyName,companyId)
+  // .subscribe(
+  //   data => {console.log(data)
+  //     if(data.status=='company exist')
+  //       this.toastr.error('Already Exsist to your watchlist', companyName,{positionClass:"toast-bottom-center"});
+  //     else
+  //       this.toastr.info('Successfully added to your Watch list', companyName,{positionClass:"toast-bottom-center"});
+  //   },
+  //   error => {
+  //       console.log(error)
+  //   }
   
   
-    )
-  }
-  
+  //   )
+  // }
+ watchlistname:String
   addingToWatchlist()
  {
   console.log(localStorage.getItem("username"))
   console.log(this.data)
-  this.addToWatchlist(localStorage.getItem("username"), this.data);
+  this.watchlistname="watchlist1"
+  this.addToWatchlist(localStorage.getItem("username"), this.data,this.watchlistname);
  
  
  }
  addingToWatchlist2()
  {
-  
-  this.addToWatchlist2(localStorage.getItem("username"), this.data);
+  this.watchlistname="watchlist2"
+  this.addToWatchlist(localStorage.getItem("username"), this.data,this.watchlistname);
  
  
  }
  addingToWatchlist3()
  {
-  
-  this.addToWatchlist3(localStorage.getItem("username"), this.data);
+  this.watchlistname="watchlist3"
+  this.addToWatchlist(localStorage.getItem("username"), this.data,this.watchlistname);
  
  
  }
@@ -147,4 +151,6 @@ export class CustomcellComponent implements OnInit {
   }*/
 
 }
+
+
 

@@ -46,6 +46,7 @@ export class AddfundComponent implements OnInit {
   this.getDataservice.addfunds(localStorage.getItem('username'),item.value)
     .subscribe(
       data=>{ 
+        console.log(data)
         if(data.status=="success")
           this.router.navigate(['profile']) 
           console.log(item.value)

@@ -31,9 +31,11 @@ import { WatchlisthomeComponent } from './watchlisthome/watchlisthome.component'
 import { MyactivityComponent } from './myactivity/myactivity.component';
 import { MultiplewatchlistsComponent } from './multiplewatchlists/multiplewatchlists.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { Watchlist1Component } from './watchlist1/watchlist1.component';
+//import { Watchlist1Component } from './watchlist1/watchlist1.component';
 //import { SelectDropDownModule } from 'ngx-select-dropdown'
 //import { NgbdDropdownBasic } from './dropdown-basic';
+import { NgxPaginationModule} from 'ngx-pagination';
+import { PaginationComponent } from './pagination/pagination.component'
 
 
 
@@ -61,7 +63,9 @@ import { Watchlist1Component } from './watchlist1/watchlist1.component';
     WatchlisthomeComponent,
     MyactivityComponent,
     MultiplewatchlistsComponent,
-    Watchlist1Component,
+    PaginationComponent,
+    
+    //Watchlist1Component,
   
    // NgbdDropdownBasic,
   
@@ -77,7 +81,7 @@ import { Watchlist1Component } from './watchlist1/watchlist1.component';
     HttpClientModule, 
     ChartsModule,
     BrowserAnimationsModule,
- 
+    NgxPaginationModule,
     AgGridModule.withComponents([]),
     ToastrModule.forRoot(),
     NgbModule

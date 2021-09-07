@@ -16,6 +16,9 @@ export class GetDataService {
 
   baseUrl = "http://localhost:8080/";
   url="";
+  page=0;
+  itemsPerPage=5;
+  totalItems:55;
   constructor(private http : HttpClient) { }
 
   getAllCompany()
@@ -23,33 +26,29 @@ export class GetDataService {
       this.url = this.baseUrl + "get-all";
       return this.http.get(this.url);       
   }
+
+  // getCompanyByPage(page:any)
+  // {
+  //   this.url=this.baseUrl+"pageable/list?page=0&size=5";
+  //   return this.http.get(this.url);
+  // }
   getAllWatchlists(email)
   {
     this.url = this.baseUrl + "watchlists?email"+email;
       return this.http.get<MyShareResponse>(this.url);  
   }
 
-  getWatchList(email)
+  getWatchList(email,watchlistname:String)
   {
-      this.url = this.baseUrl + "watch-list?email=" + email;
+      this.url = this.baseUrl + "watch-list?email=" + email+"&watchlistname="+watchlistname;
       return this.http.get<MyShareResponse>(this.url);       
   }
-  getWatchList1(email)
-  {
-      this.url = this.baseUrl + "watch-list1?email=" + email;
-      return this.http.get<MyShareResponse>(this.url);       
-  }
-  getWatchList2(email)
-  {
-      this.url = this.baseUrl + "watch-list2?email=" + email;
-      return this.http.get<MyShareResponse>(this.url);       
-  }
-  getWatchList3(email)
-  {
-      this.url = this.baseUrl + "watch-list3?email=" + email;
-      return this.http.get<MyShareResponse>(this.url);       
-  }
-
+  // getUserWatchlist(email)
+  // {
+  //   this.url = this.baseUrl + "userwatch-list?email=" + email;
+  //   return this.http.get<MyShareResponse>(this.url);
+  // }
+  
   getOneCompany(id)
   {
       this.url = this.baseUrl + "get-one?id=" + id;
@@ -68,21 +67,12 @@ export class GetDataService {
     return this.http.get<MyShareResponse>(this.url);     
   }
   
-  addWatchList(email,id)
+  addWatchList(email: string,id: string,watchlistname:String)
   {
-    this.url = this.baseUrl + "add-watchlist1/?email=" + email + "&id=" + id;
+    this.url = this.baseUrl + "add-watchlist/?email=" + email + "&id=" + id+"&watchlistname="+watchlistname;
     return this.http.get<responseStatus>(this.url);     
   }
-  addWatchList2(email,id)
-  {
-    this.url = this.baseUrl + "add-watchlist2/?email=" + email + "&id=" + id;
-    return this.http.get<responseStatus>(this.url);     
-  }
-  addWatchList3(email,id)
-  {
-    this.url = this.baseUrl + "add-watchlist3/?email=" + email + "&id=" + id;
-    return this.http.get<responseStatus>(this.url);     
-  }
+  
 
   removeWatchList(email,id)
   {

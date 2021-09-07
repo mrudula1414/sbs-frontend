@@ -55,7 +55,7 @@ export class BuyComponent implements OnInit {
     //this.watchService.buyShare( localStorage.getItem('username'), this.companyId, this.quantity)
       .subscribe(
         
-        data => {//console.log(data)
+        data => {console.log(data)
           if(data.status=="success")
             this.router.navigate(['my-shares'])          
           else if(data.status=="insufficient balance")

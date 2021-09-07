@@ -14,11 +14,13 @@ import { AddfundComponent } from './addfund/addfund.component';
 import { WatchlisthomeComponent } from './watchlisthome/watchlisthome.component';
 import { MyactivityComponent } from './myactivity/myactivity.component';
 import { MultiplewatchlistsComponent } from './multiplewatchlists/multiplewatchlists.component';
+import { AppComponent } from './app.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 
 export const AppRoutes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', component: HomeComponent },
+  { path: 'stocks', component: HomeComponent },
   { path: 'watch', component: WatchlisthomeComponent, },
   { path: 'buy/:id', component: BuyComponent },
   { path: 'sell/:id', component: SellComponent },
@@ -36,7 +38,8 @@ export const AppRoutes: Routes = [
   { path: 'losers', component: UnderProgressComponent },
   { path: 'logout', component: LogoutComponent },
   {path: 'addfunds', component: AddfundComponent},
-  { path: 'watchlists', component:MultiplewatchlistsComponent}
+  { path: 'watchlists', component:MultiplewatchlistsComponent},
+  { path: '',component:PaginationComponent}
 
 ];
 
