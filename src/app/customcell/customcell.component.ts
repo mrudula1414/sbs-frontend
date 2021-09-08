@@ -42,13 +42,12 @@ export class CustomcellComponent implements OnInit {
   this.getDataservice.addWatchList(Name,companyId,watchlistname)
   .subscribe(
     data => {console.log(data)
-      console.log("hi")
       console.log(watchlistname)
-      console.log(name)
+     
       if(data.status=='company exist')
-        this.toastr.error('Already Exists in your watchlist', companyId,{positionClass:"toast-bottom-center"});
+        this.toastr.error('Already Exists in your watchlist',Name,{positionClass:"toast-bottom-center"});
       else
-        this.toastr.info('Successfully added to your Watch list', companyId,{positionClass:"toast-bottom-center"});
+        this.toastr.info('Successfully added to your Watch list', Name,{positionClass:"toast-bottom-center"});
     },
     error => {
         console.log(error)
@@ -153,4 +152,8 @@ export class CustomcellComponent implements OnInit {
 }
 
 
+
+function companyName(arg0: string, companyName: any, arg2: { positionClass: string; }) {
+  throw new Error('Function not implemented.');
+}
 

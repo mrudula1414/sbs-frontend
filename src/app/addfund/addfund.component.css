@@ -123,3 +123,15 @@ body{
     text-align: center;
 
 }
+.target:active, 
+  .target:focus {
+    background-color:rgb(117, 114, 124);
+
+  }
+  button:disabled,
+button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: red;
+    cursor:not-allowed;
+  }

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { GetDataService } from '../../services/get-data.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { GetDataService } from 'src/app/services/get-data.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-about',
+  templateUrl: './about.component.html',
+  styleUrls: ['./about.component.css']
 })
-export class ProfileComponent implements OnInit {
+export class AboutComponent implements OnInit {
+
   
 
   constructor(private getDataservice: GetDataService,private router: Router, private Route:ActivatedRoute) { }
@@ -22,11 +23,5 @@ export class ProfileComponent implements OnInit {
       error => { }
     )
   }
-  goToAddFunds(){
-    this.router.navigate(['addfunds'],{relativeTo:this.Route})
-  }
-  goToAbout(){
-    this.router.navigate(['about'],{relativeTo:this.Route})
-  }
-
+  go
 }

@@ -1,7 +1,7 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute  } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BuybuttonComponent } from '../buybutton/buybutton.component';
 import { WatchListComponent } from '../components/watch-list/watch-list.component';
@@ -42,7 +42,7 @@ export class MultiplewatchlistsComponent implements OnInit {
   constructor(private router: Router, 
     private getDataservice: GetDataService, 
     private loginService:AuthenticationService
-,private toastr: ToastrService, 
+,private _Activatedroute:ActivatedRoute,private toastr: ToastrService, 
     private http: HttpClient) { }
     columnDefs=[
       
@@ -78,6 +78,7 @@ export class MultiplewatchlistsComponent implements OnInit {
     
      
 ngOnInit() {
+ 
   const mailid=localStorage.getItem("username");
 this.rowData=this.http.get("http://localhost:8080/watch-list?email="+mailid)
 this.rowHeight = 40;

@@ -16,6 +16,7 @@ import { MyactivityComponent } from './myactivity/myactivity.component';
 import { MultiplewatchlistsComponent } from './multiplewatchlists/multiplewatchlists.component';
 import { AppComponent } from './app.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { AboutComponent } from './components/profile/about/about.component';
 
 
 export const AppRoutes: Routes = [
@@ -24,22 +25,29 @@ export const AppRoutes: Routes = [
   { path: 'watch', component: WatchlisthomeComponent, },
   { path: 'buy/:id', component: BuyComponent },
   { path: 'sell/:id', component: SellComponent },
-  { path: 'profile', component: ProfileComponent}, 
-  { path: 'myactivity', component: MyactivityComponent}, 
+  { path: 'profile', component: ProfileComponent,
+  children: [ 
+    {
+  path: 'addfunds',component: AddfundComponent
+    },
+    {
+      path: 'about',component: AboutComponent
+        },
+       ]}, 
+  { path: 'myactivity', component: MyactivityComponent},
 
-  // children: [ 
-  //   {
-  // path: 'addfunds',component: AddfundComponent
-  //   }
-  //      ]},
+ 
   { path: 'view/:id', component: ViewComponent },
   { path: 'my-shares', component: MySharesComponent },
-  { path: 'gainers', component: UnderProgressComponent },
-  { path: 'losers', component: UnderProgressComponent },
+  
   { path: 'logout', component: LogoutComponent },
   {path: 'addfunds', component: AddfundComponent},
   { path: 'watchlists', component:MultiplewatchlistsComponent},
-  { path: '',component:PaginationComponent}
+  { path: 'watchlists/:watchlistname', component:MultiplewatchlistsComponent},
+  { path: '',component:PaginationComponent},
+  {
+   path:'**',component:UnderProgressComponent
+  }
 
 ];
 

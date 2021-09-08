@@ -35,7 +35,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //import { SelectDropDownModule } from 'ngx-select-dropdown'
 //import { NgbdDropdownBasic } from './dropdown-basic';
 import { NgxPaginationModule} from 'ngx-pagination';
-import { PaginationComponent } from './pagination/pagination.component'
+import { PaginationComponent } from './pagination/pagination.component';
+import { AboutComponent } from './components/profile/about/about.component';
+
 
 
 
@@ -64,6 +66,7 @@ import { PaginationComponent } from './pagination/pagination.component'
     MyactivityComponent,
     MultiplewatchlistsComponent,
     PaginationComponent,
+    AboutComponent,
     
     //Watchlist1Component,
   

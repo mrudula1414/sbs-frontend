@@ -1,39 +1,35 @@
-<br>
-<br>
-<br>
-<br>
 
-<div class="container emp-profile">
+<!-- <div class="container emp-profile">
     <form method="post">
         <div *ngIf="userDetails" class="row">
             <div class="col-md-4">
                 <div class="user-img">
                     <img src="assets/images/user.png" alt="" />
                 </div>
-               <!-- *ngIf="userDetails[0].name!='Ram Sankar R'" -->
-            </div>
+                *ngIf="userDetails[0].name!='Ram Sankar R'" -->
+            <!-- </div>
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
                         {{userDetails[0].name}}
-                    </h5>
-                 
-                   <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    </h5> -->
+                  
+                   <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link" id="home-tab" data-toggle="tab" routerLink="/profile" role="tab" aria-controls="home" aria-selected="true">About</a>
                         </li>
                         <li class="nav-item" style="margin-left: 30px;">
                             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" routerLink="/addfunds" [target]="'_self'">Add Funds</a>
-                            <!-- <a class="nav-link" id="home-tab" data-toggle="tab" role="tab" [routerLink]="['addfunds']">Add Funds</a> -->
-                        </li>
+                             <a class="nav-link" id="home-tab" data-toggle="tab" role="tab" [routerLink]="['addfunds']">Add Funds</a> -->
+                        <!-- </li>
                         
-                    </ul>
-                </div>
+                    </ul> -->
+                <!-- </div>
             </div>
             <div class="col-md-2">
 
             </div>
-        </div>
+        </div> --> 
         <div class="row">
             <div class="col-md-4">
 
@@ -43,14 +39,20 @@
                     <div *ngIf="userDetails" class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                         <div class="container">
-                            <h4>Add virtual money!</h4>
                            
-                            <div>
+                           
+                            
                                 <label for="virtualMoney"> <h2>Amount</h2></label>
-                                <!-- <input type="text" required class="form-control" name="phone" [(ngModel)]="phone" #ph="ngModel" -->
-                                <input type="number" name="virtualMoney" id="virtualMoney" #funds placeholder="Enter amount" min="0">
-                                <button class="btn btn-dark" (click)="updateUserFunds(funds)"> Add</button>
-                            </div>
+                                <!-- <input type="text" required class="form-control" name="phone" [(ngModel)]="phone" #ph="ngModel" --> 
+                                 
+                                 <!-- <input type="number" name="virtualMoney" id="virtualMoney" #funds placeholder="Enter amount" min="0">
+                                <button class="btn btn-dark" type="submit" [disabled]="checkQuantity(funds)" (click)="updateUserFunds(funds)"> Add</button>  -->
+                                <input type="number" name="virtualMoney" id="virtualMoney" #funds placeholder="Enter amount" min="0"
+            [(ngModel)]=quantity #qty="ngModel" minlength="3" placeholder="Enter Amount">
+        <button type="submit" [disabled]="!checkQuantity(qty)" class="btn btn-dark" (click)="updateUserFunds(funds)">
+            Add</button>
+                                    
+                           
                         </div>
                     
                             
@@ -64,8 +66,7 @@
                 </div>
             </div>
         </div> 
-    </form>
-</div>
+   
 
 
         

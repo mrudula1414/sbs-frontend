@@ -22,7 +22,7 @@ export class PaginationComponent implements OnInit {
   baseUrl = "http://localhost:8080/";
   url="";
   page=0;
-  itemsPerPage=5;
+  itemsPerPage=7;
   totalItems:any;
   getAllData() {
     this.http.get(`http://localhost:8080/pageable/list?page=${0}&size=${this.itemsPerPage}`).subscribe((data: any) => {

@@ -43,12 +43,13 @@ export class AddfundComponent implements OnInit {
     
     
     console.log(localStorage.getItem('username'))
+    console.log(item)
   this.getDataservice.addfunds(localStorage.getItem('username'),item.value)
     .subscribe(
       data=>{ 
         console.log(data)
         if(data.status=="success")
-          this.router.navigate(['profile']) 
+          this.router.navigate(['profile/about']) 
           console.log(item.value)
           console.log(localStorage.getItem('username')) 
                    

@@ -21,10 +21,11 @@
 <div class="col col-9">
      
     <div class="heading">
+        <!-- select a watchlist to view stocks -->
         <div *ngIf="!watchList1">
             <br>
             <br>
-             <h5 style="text-align: center;">No stocks in your watchlist !</h5>
+             <h5 style="text-align: center;">No stocks in your {{watchlistname}} !</h5>
          </div>
       <div *ngIf="watchList1" class="table-responsive-md watchlist" id=""> 
         <h2 style="text-align: center;">{{watchlistname}}</h2>

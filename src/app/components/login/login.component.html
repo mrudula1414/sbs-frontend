@@ -23,11 +23,11 @@
 
                 <div class="password">
                     <br/><label>Password</label>
-                    <input type="password" class="form-control" name="password" [(ngModel)]="password" #pass="ngModel" required minlength="3">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="password" #pass="ngModel" required minlength="6">
 
                     <div *ngIf="pass.invalid" class="text-danger warningMessage">
                         <div *ngIf="pass.errors.minlength">
-                            Minimum 3 character required
+                            Minimum 6 character required
                         </div>
                     </div>
                 </div>

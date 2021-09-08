@@ -1,9 +1,10 @@
+<br>
+<br>
+<br>
 <body>
  <div  *ngIf="companyDetails" class="table-responsive-md" id="" > 
 
-    <br>
-    <br>
-  <br>
+
     <table class="table table-borderless table-hover">
     
         <thead class="thead-light">
@@ -16,9 +17,7 @@
                 <th>Current Rate</th>
                 <th>Year Low</th>
                 <th>Year High</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                
             </tr>
             </thead>
 
@@ -33,14 +32,14 @@
                   "
                   >
                     <td>{{elements.name}}</td>
-                    <td>{{elements.open_rate}}</td>
-                    <td>{{elements.close_rate}}</td>
-                    <td>{{elements.peak_rate}}</td>
-                    <td>{{elements.least_rate}}</td>
-                    <td>{{elements.current_rate}}</td>
-                    <td>{{elements.year_low}}</td>
-                    <td>{{elements.year_high}}</td>
-                    <td>
+                    <td>{{elements.open_rate|currency:'INR':'symbol'}}</td>
+                    <td>{{elements.close_rate|currency:'INR':'symbol'}}</td>
+                    <td>{{elements.peak_rate|currency:'INR':'symbol'}}</td>
+                    <td>{{elements.least_rate|currency:'INR':'symbol'}}</td>
+                    <td>{{elements.current_rate|currency:'INR':'symbol'}}</td>
+                    <td>{{elements.year_low|currency:'INR':'symbol'}}</td>
+                    <td>{{elements.year_high|currency:'INR':'symbol'}}</td>
+                    <!-- <td>
                         <button (click)="goToDetailedView(elements.company_id)" type="button" class="btn btn-primary sell">Details</button>
                     </td>
                     <td>                                 
@@ -48,14 +47,17 @@
                     </td>
                     <td>
                         <button (click)="addToWatchlist(elements.company_id, elements.name)" type="button" class="btn btn-dark sell">Watch</button>
-                    </td>
+                    </td> -->
                 </tr>                           
             </tbody>
     </table>
 
 </div>
-<pagination-controls
-  class="pagi"
-  (pageChange)="gty((page = $event))"
-></pagination-controls> 
+
 </body>
+<div class="pages container">
+    <pagination-controls
+      class="pagi"
+      (pageChange)="gty((page = $event))"
+    ></pagination-controls> 
+    </div>

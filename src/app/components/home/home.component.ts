@@ -41,8 +41,8 @@ export class HomeComponent implements OnInit {
       //{ headerName: "Action", field: "company_id", "cellRendererFramework":CustomcellComponent,width:200},
      // { headerName: "Action", field: "company_id", "cellRendererFramework":DetailsbuttonComponent,width:100},
      //{ headerName: "Action", field: "company_id",cellRendererFramework:(params)=
-               //{ headerName: "Action", field: "company_id",cellRendererFramework:(params)=><div>
-                //<button>Watch</button></div>},
+              //  { headerName: "Action", field: "company_id",cellRendererFramework:(params)=>`<div>
+              //   <button>Watch</button></div>`},
                 //{ headerName: "Action", field: "company_id",width:200,onClick={()=>actionButton(params)},cellRendererParams:(params)=>},
                 
                 ];

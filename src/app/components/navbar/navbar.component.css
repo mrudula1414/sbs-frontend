@@ -48,3 +48,32 @@
     color:#caccce;
     text-decoration: none;
 }
+.target:active, 
+  .target:focus {
+    background-color:rgb(117, 114, 124);
+
+  }
+.active
+{
+    color:aqua;
+} 
+/* a:link {
+    color: green;
+    background-color: transparent;
+    text-decoration: none;
+  } */
+  /* a:visited {
+    color: pink;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover {
+    color: red;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  a:active {
+    color: yellow;
+    background-color: transparent;
+    text-decoration: underline;
+  } */
